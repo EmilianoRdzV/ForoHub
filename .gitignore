@@ -28,7 +28,7 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
-# Ignorar archivos de configuración sensibles
+
 application.properties
 
 ### VS Code ###
