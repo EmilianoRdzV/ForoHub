@@ -52,7 +52,7 @@ El proyecto está diseñado con una arquitectura por capas:
 Clonar el repositorio:
     ```bash
     https://github.com/EmilianoRdzV/ForoHub.git
-   cd ForoHub
+    ```
 
 
 
