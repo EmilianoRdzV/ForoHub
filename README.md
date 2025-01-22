@@ -49,8 +49,7 @@ El proyecto está diseñado con una arquitectura por capas:
 - Maven 3.8+
 - MySQL Workbench 8.0+
 
-### **Pasos**
-1. Clonar el repositorio:
+Clonar el repositorio:
    ```bash
     https://github.com/EmilianoRdzV/ForoHub.git
    cd ForoHub
