@@ -55,12 +55,14 @@ El proyecto está diseñado con una arquitectura por capas:
     https://github.com/EmilianoRdzV/ForoHub.git
    cd ForoHub
    
-Método	Endpoint	Descripción
-POST	/login	Loguear un usuario.
-GET	/usuarios	Obtener lista de usuarios.
-GET	/topicos	Listar todos los tópicos.
-POST	/topicos	Crear un nuevo tópico.
-GET	/cursos	Listar todos los cursos.
-POST	/respuestas	Publicar una respuesta en un tópico.
-DELETE	/usuarios	Desactiva a un usuario.
-PUT	/respuestas/id	Actualiza una respuesta.
+| Método | Endpoint         | Descripción                        |
+|--------|------------------|------------------------------------|
+| POST   | `/login`          | Loguear un usuario.                |
+| GET    | `/usuarios`       | Obtener lista de usuarios.         |
+| GET    | `/topicos`        | Listar todos los tópicos.           |
+| POST   | `/topicos`        | Crear un nuevo tópico.              |
+| GET    | `/cursos`         | Listar todos los cursos.            |
+| POST   | `/respuestas`     | Publicar una respuesta en un tópico.|
+| DELETE | `/usuarios`       | Desactiva a un usuario.             |
+| PUT    | `/respuestas/id`  | Actualiza una respuesta.            |
+
