@@ -1,14 +1,14 @@
 package com.geniedev.ForoHub.services;
 
-import com.geniedev.ForoHub.dto.TopicoRequestDTO;
-import com.geniedev.ForoHub.dto.TopicoResponseDTO;
-import com.geniedev.ForoHub.models.Curso;
-import com.geniedev.ForoHub.models.Topico;
-import com.geniedev.ForoHub.models.Usuario;
-import com.geniedev.ForoHub.repositories.CursoRepository;
-import com.geniedev.ForoHub.repositories.TopicoRepository;
-import com.geniedev.ForoHub.repositories.UsuarioRepository;
+import com.geniedev.ForoHub.dto.*;
+import com.geniedev.ForoHub.models.*;
+import com.geniedev.ForoHub.repositories.*;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TopicoService {
@@ -23,6 +23,7 @@ public class TopicoService {
         this.cursoRepository = cursoRepository;
     }
 
+    @Transactional
     public TopicoResponseDTO crearTopico(TopicoRequestDTO dto) {
         Usuario autor = usuarioRepository.findById(dto.autorId())
                 .orElseThrow(() -> new RuntimeException("Autor no encontrado"));
@@ -30,7 +31,7 @@ public class TopicoService {
         Curso curso = cursoRepository.findById(dto.cursoId())
                 .orElseThrow(() -> new RuntimeException("Curso no encontrado"));
 
-        Topico topico = new Topico(null, dto.titulo(), dto.mensaje(), null, autor, curso);
+        Topico topico = new Topico(dto.titulo(), dto.mensaje(), LocalDateTime.now(), autor, curso);
         topicoRepository.save(topico);
 
         return new TopicoResponseDTO(
@@ -42,4 +43,20 @@ public class TopicoService {
                 curso.getNombre()
         );
     }
+
+    public List<TopicoResponseDTO> listarTopicos() {
+        List<Topico> topicos = topicoRepository.findAll();
+        return topicos.stream().map(t ->
+                new TopicoResponseDTO(
+                        t.getId(),
+                        t.getTitulo(),
+                        t.getMensaje(),
+                        t.getFechaCreacion(),
+                        t.getAutor().getNombre(),
+                        t.getCurso().getNombre()
+                )
+        ).collect(Collectors.toList());
+    }
 }
+
+
