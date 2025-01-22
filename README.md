@@ -50,10 +50,12 @@ El proyecto está diseñado con una arquitectura por capas:
 - MySQL Workbench 8.0+
 
 Clonar el repositorio:
-   ```bash
+    ```bash
     https://github.com/EmilianoRdzV/ForoHub.git
    cd ForoHub
-   
+
+
+
 | Método | Endpoint         | Descripción                        |
 |--------|------------------|------------------------------------|
 | POST   | `/login`          | Loguear un usuario.                |
